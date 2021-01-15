@@ -19,9 +19,10 @@ configParser = configparser.RawConfigParser()
 configFilePath = r'./config.ini'
 configParser.read(configFilePath)
 
-intervalDay = int ( configParser.get('interval', 'dayInterval') )
-minor_locator_interval = int ( configParser.get('interval', 'minor_locator_interval') )
-max_locator_interval = int ( configParser.get('interval', 'max_locator_interval') )
+intervalDay = int ( configParser.get('settings', 'dayInterval') )
+minor_locator_interval = int ( configParser.get('settings', 'minor_locator_interval') )
+max_locator_interval = int ( configParser.get('settings', 'max_locator_interval') )
+imageOutputPath = configParser.get('settings', 'images_output_path')
 
 #########################################################################################
 # Processing data from 'anagrafica-vaccini-summary-latest.json' file with defined mapping
@@ -90,7 +91,7 @@ ax1.legend(labels,
 #plt.show()
 logManager.writeWithTimestemp ("CalculateResults.py: pie chart % vaccinated people correctly generated!")
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart % vaccinated people correctly png...")
-plt.savefig('/Users/marco/Desktop/outPutCovidGraph/pie_perc_vaccinated_people.png')  
+plt.savefig(imageOutputPath + 'pie_perc_vaccinated_people.png')  
 logManager.writeWithTimestemp ("CalculateResults.py: % vaccinated people correctly png correctly generated!")
 
 ###############################################################################################
@@ -155,7 +156,7 @@ ax1.xaxis.set_tick_params(rotation=90)
 #plt.show()
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart Vaccine x Day correctly generated")
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart Vaccine x Day generating png...")
-plt.savefig('/Users/marco/Desktop/outPutCovidGraph/bar_chart_vaccine_x_day.png')  
+plt.savefig(imageOutputPath + 'bar_chart_vaccine_x_day.png')  
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart Vaccine x Day png correctly generated!")
 
 ###############################################################################################
@@ -245,7 +246,7 @@ ax1.xaxis.set_tick_params(rotation=90)
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart 'Covid19 %positive' correctly generated")
 #plt.show()
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart %positive gereating png...")
-plt.savefig('/Users/marco/Desktop/outPutCovidGraph/plot_perc_positive.png')  
+plt.savefig(imageOutputPath + 'plot_perc_positive.png')  
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart %positive png correctly generated!")
 
 logManager.writeWithTimestemp ("CalculateResults.py: generating plot chart 'Covid 19 death'...")
@@ -261,7 +262,7 @@ ax1.xaxis.set_tick_params(rotation=90)
 #plt.show()
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart 'Covid 19 death' correctly generated")
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart 'Covid 19 death' gereating png...")
-plt.savefig('/Users/marco/Desktop/outPutCovidGraph/plot_death.png')  
+plt.savefig(imageOutputPath + 'plot_death.png')  
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart 'Covid 19 death' png correctly generated!")
 
 logManager.writeWithTimestemp ("CalculateResults.py: generating plot chart 'Covid 19 TI'...")
@@ -277,7 +278,7 @@ ax1.xaxis.set_tick_params(rotation=90)
 #plt.show()
 logManager.writeWithTimestemp ("CalculateResults.py: bar chart 'Terapie Intensive' correctly generated")
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart 'Terapie Intensive' gereating png...")
-plt.savefig('/Users/marco/Desktop/outPutCovidGraph/plot_Terapie_Intensive.png')  
+plt.savefig(imageOutputPath + 'plot_Terapie_Intensive.png')  
 logManager.writeWithTimestemp ("CalculateResults.py: plot chart 'Terapie Intensive' png correctly generated!")
 
 logManager.writeWithTimestemp ("============================================================================")
