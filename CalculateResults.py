@@ -31,7 +31,6 @@ max_locator_interval = int ( configParser.get('interval', 'max_locator_interval'
 jr = JsonRead("https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/last-update-dataset.json")
 jsonD = jr.getData()
 up = Update (jsonD["ultimo_aggiornamento"])
-print (up.last_update)
 
 arrayVaccineSummary = []
 try:
