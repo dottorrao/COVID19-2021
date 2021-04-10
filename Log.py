@@ -8,15 +8,17 @@ class LogManager:
         self.fileName = logFileName
         self.levelLog = levelLog
        
-    def write(self, message):
-        print( message )
+    def write(self, message, suppressconsole):
+        if not (suppressconsole):
+            print( message )
         f = open( str(self.logPathFile) + "/" + str(self.fileName), "a" )
         f.write(message + "\n")
         f.close()
 
-    def writeWithTimestemp(self, message):
+    def writeWithTimestemp(self, message, suppressconsole):
         now = datetime.datetime.now()
-        print( str(now) + " : " + message )
+        if not (suppressconsole):
+            print( str(now) + " : " + message )
         f = open( str(self.logPathFile) + "/" + str(self.fileName), "a" )
         f.write( str(now) + " : " + message + "\n" )
         f.close()

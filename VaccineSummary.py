@@ -1,6 +1,6 @@
 class VaccineSummary:
 
-    def __init__(self, index, range_age, total, male, female, health_workers, not_health_workers, rsa_hosts, last_update):
+    def __init__(self, index, range_age, total, male, female, health_workers, not_health_workers, rsa_hosts, over_80, armed_for, scool_emp, first_dose, second_dose, last_update):
         self.index = index
         self.range_age = range_age
         self.total = total
@@ -9,6 +9,11 @@ class VaccineSummary:
         self.health_workers = health_workers
         self.not_health_workers = not_health_workers
         self.rsa_hosts = rsa_hosts
+        self.over_80 = over_80
+        self.scool_emp = scool_emp
+        self.armed_for = armed_for
+        self.first_dose = first_dose
+        self.second_dose = second_dose
         self.last_update = last_update
     
         def get_index(self):
